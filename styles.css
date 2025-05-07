@@ -1,0 +1,141 @@
+:root {
+    --cor-primaria: #3a86ff;
+    --cor-secundaria: #8338ec;
+    --cor-fundo: #f8f9fa;
+    --cor-texto: #212529;
+    --cor-borda: #dee2e6;
+    --cor-desconto: #ff006e;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --raio-borda: 8px;
+    --espacamento: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+h1 {
+    color: var(--cor-primaria);
+}
+
+.btn-desconto {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--raio-borda);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-desconto:hover {
+    background-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+.btn-desconto:active {
+    transform: translateY(0);
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.produto-card {
+    background-color: white;
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-card:hover {
+    transform: translateY(-5px);
+}
+
+.produto-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-nome {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+}
+
+.produto-descricao {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.produto-preco {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-texto);
+    margin-top: auto;
+}
+
+.preco-original {
+    text-decoration: line-through;
+    color: #6c757d;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.preco-desconto {
+    color: var(--cor-desconto);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .produtos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+}
